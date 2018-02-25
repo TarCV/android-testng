@@ -1,7 +1,6 @@
 package de.lemona.android.testng.test;
 
-import static de.lemona.android.testng.AndroidTestNGSupport.getContext;
-import static de.lemona.android.testng.AndroidTestNGSupport.getInstrumentation;
+import android.support.test.InstrumentationRegistry;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -14,32 +13,32 @@ public class AndroidComponentsTest {
 
     @BeforeSuite
     public void beforeSuite() {
-        Assert.assertNotNull(getContext(), "Non-null context in @BeforeSuite");
-        Assert.assertNotNull(getInstrumentation(), "Non-null instrumentation in @BeforeSuite");
+        Assert.assertNotNull(InstrumentationRegistry.getTargetContext(), "Non-null context in @BeforeSuite");
+        Assert.assertNotNull(InstrumentationRegistry.getInstrumentation(), "Non-null instrumentation in @BeforeSuite");
     }
 
     @BeforeGroups(groups="Components")
     public void beforeGroups() {
-        Assert.assertNotNull(getContext(), "Null context in @BeforeGroups");
-        Assert.assertNotNull(getInstrumentation(), "Null instrumentation in @BeforeGroups");
+        Assert.assertNotNull(InstrumentationRegistry.getTargetContext(), "Null context in @BeforeGroups");
+        Assert.assertNotNull(InstrumentationRegistry.getInstrumentation(), "Null instrumentation in @BeforeGroups");
     }
 
     @BeforeClass
     public void beforeClass() {
-        Assert.assertNotNull(getContext(), "Null context in @BeforeClass");
-        Assert.assertNotNull(getInstrumentation(), "Null instrumentation in @BeforeClass");
+        Assert.assertNotNull(InstrumentationRegistry.getTargetContext(), "Null context in @BeforeClass");
+        Assert.assertNotNull(InstrumentationRegistry.getInstrumentation(), "Null instrumentation in @BeforeClass");
     }
 
     @BeforeTest
     public void beforeTest() {
-        Assert.assertNotNull(getContext(), "Null context in @BeforeTest");
-        Assert.assertNotNull(getInstrumentation(), "Null instrumentation in @BeforeTest");
+        Assert.assertNotNull(InstrumentationRegistry.getTargetContext(), "Null context in @BeforeTest");
+        Assert.assertNotNull(InstrumentationRegistry.getInstrumentation(), "Null instrumentation in @BeforeTest");
     }
 
     @Test(groups="Components")
     public void testComponents() {
-        Assert.assertNotNull(getContext(), "Null context in @Test");
-        Assert.assertNotNull(getInstrumentation(), "Null instrumentation in @Test");
+        Assert.assertNotNull(InstrumentationRegistry.getTargetContext(), "Null context in @Test");
+        Assert.assertNotNull(InstrumentationRegistry.getInstrumentation(), "Null instrumentation in @Test");
     }
 
 }

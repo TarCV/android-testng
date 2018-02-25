@@ -46,15 +46,6 @@ dependencies {
    exclude group: 'junit', module: 'junit'
   }
 
-  // Guice required for compilation (provided) and test
-  provided('com.google.inject:guice:3.0:no_aop') {
-    exclude group: 'org.sonatype.sisu.inject', module: 'cglib'
-    exclude group: 'aopalliance', module: 'aopalliance'
-  }
-
-  androidTestCompile('com.google.inject:guice:3.0:no_aop') {
-    exclude group: 'org.sonatype.sisu.inject', module: 'cglib'
-    exclude group: 'aopalliance', module: 'aopalliance'
-  }
+  androidTestImplementation 'com.android.support.test:runner:1.0.1'
 }
 

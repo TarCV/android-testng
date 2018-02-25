@@ -50,7 +50,6 @@ public class TestNGRunner extends Instrumentation {
     @Override
     public void onStart() {
         final TestNGListener listener = new TestNGListener(this);
-        AndroidTestNGSupport.injectInstrumentation(this);
 
         if (args.debug) {
             // waitForDebugger

@@ -1,27 +1,20 @@
 TestNG runner for Android
 =========================
 
-This is a minimal implementation of an Android
+This is an implementation of an Android
 [Instrumentation](http://developer.android.com/reference/android/app/Instrumentation.html)
 executing unit tests based on [TestNG](http://testng.org/) (the best testing framework for Java).
-
-[![Download](https://api.bintray.com/packages/lemonade/maven/android-testng/images/download.svg) ](https://bintray.com/lemonade/maven/android-testng/_latestVersion)
 
 Usage
 -----
 
 Depending on your build system, your mileage might vary, but with
 [Gradle](https://gradle.org/) the only required changes to your build files
-should be limited to adding our [repository](https://bintray.com/lemonade/maven),
+should be limited to adding our repository,
 then declaring the dependency and modifying your `testInstrumentationRunner`:
 
 ```groovy
-// Our Bintray repository
-repositories {
-  maven {
-    url 'http://dl.bintray.com/lemonade/maven'
-  }
-}
+// TO BE UPLOADED
 
 // TestNG dependency, remember to update to the latest version
 dependencies {
@@ -76,13 +69,9 @@ Contexts
 
 In order to have access to the Android's application
 [Context](http://developer.android.com/reference/android/content/Context.html)
-please refer to the [`AndroidTestNGSupport`](src/main/java/de/lemona/android/testng/AndroidTestNGSupport.java)
-utility class. The two static `getContext()` and `getInstrumentation()` methods
-allow retrieval of the instances.
+please use ASTL standard [InstrumentationRegistry#getTargetContext](https://developer.android.com/reference/android/support/test/InstrumentationRegistry.html#getTargetContext()).
 
-[Google Guice](https://github.com/google/guice) injection is also supported. Take a look at the
-[GuiceInjectionTest](src/androidTest/java/de/lemona/android/testng/test/GuiceInjectionTest.java)
-for an example of how to configure your tests.
+In comparison with the original project Guice is removed here.
 
 
 Options

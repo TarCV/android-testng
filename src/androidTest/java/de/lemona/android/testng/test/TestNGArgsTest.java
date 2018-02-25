@@ -2,32 +2,23 @@ package de.lemona.android.testng.test;
 
 import android.app.Instrumentation;
 import android.os.Bundle;
-
-import com.google.inject.Inject;
+import android.support.test.InstrumentationRegistry;
 
 import junit.framework.Assert;
 
-import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import de.lemona.android.testng.AndroidTestNGModule;
 import de.lemona.android.testng.TestNGArgs;
 
 /**
  *
  */
-@Guice(modules=AndroidTestNGModule.class)
 public class TestNGArgsTest {
 
-    private final Instrumentation instrumentation;
-
-    @Inject
-    public TestNGArgsTest(Instrumentation instrumentation) {
-        this.instrumentation = instrumentation;
-    }
+    private final Instrumentation instrumentation = InstrumentationRegistry.getInstrumentation();
 
     @Test
     public void testParseArguments() {

@@ -152,7 +152,7 @@ public class AndroidTestNGRunner
 
             executorBuilder.setCommandLineSuite(xmlSuite);
             mInstrumentationResultPrinter.setInstrumentation(this);
-            executorBuilder.runSuitesLocally();
+            executorBuilder.run();
         } catch (RuntimeException e) {
             final String msg = "Fatal exception when running tests";
             Log.e(TAG, msg, e);
@@ -169,6 +169,7 @@ public class AndroidTestNGRunner
             // mode.
             builder.addRunListener(getInstrumentationResultPrinter());
         } else */ {
+            builder.addListener(new MethodRulesHookable());
             builder.addListener(new TestNGLogRunListener());
             if (mOrchestratorListener != null) {
                 builder.addListener(mOrchestratorListener);

@@ -45,7 +45,7 @@ dependencies {
    exclude group: 'org.beanshell', module: 'bsh'
    exclude group: 'junit', module: 'junit'
   }
-  implementation 'com.android.support.test:runner:1.0.1'
+  api 'com.android.support.test:runner:1.0.1'
 
   androidTestImplementation 'com.android.support.test:runner:1.0.1'
 }

@@ -1,0 +1,52 @@
+// Build dependencies
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:3.0.1'
+  }
+}
+
+// Plugins
+apply plugin: 'com.android.library'
+
+// Android setup
+android {
+  compileSdkVersion 26
+  buildToolsVersion '26.0.2'
+
+  // Instrumentation runner defined here, we publish this...
+  defaultConfig {
+    minSdkVersion 22
+    targetSdkVersion 26
+    testInstrumentationRunner 'com.github.tarcv.androidtestng.TestNGRunner'
+  }
+}
+
+// Ignore test failures, we have forced a couple of them
+gradle.taskGraph.whenReady {
+  connectedDebugAndroidTest {
+    ignoreFailures = true
+  }
+}
+
+repositories {
+  google()
+  jcenter()
+}
+
+// Our dependencies
+dependencies {
+
+  // Depend on TestNG (obviously)
+  api('org.testng:testng:6.14.2') {
+   exclude group: 'com.beust', module: 'jcommander'
+   exclude group: 'org.beanshell', module: 'bsh'
+   exclude group: 'junit', module: 'junit'
+  }
+  implementation 'com.android.support.test:runner:1.0.1'
+
+  androidTestImplementation 'com.android.support.test:runner:1.0.1'
+}
+

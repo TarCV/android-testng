@@ -24,7 +24,7 @@ dependencies {
 // Android setup
 android {
   defaultConfig {
-    testInstrumentationRunner 'de.lemona.android.testng.TestNGRunner'
+    testInstrumentationRunner 'com.github.tarcv.androidtestng.TestNGRunner'
   }
 }
 ```
@@ -42,26 +42,27 @@ plus `....test`.
 If no tests can be found, verify the parameter in the manifest of your APK.
 
 For example in our [manifest](src/main/AndroidManifest.xml) the declared
-package is `de.lemona.android.testng`, henceforth after the build processes
+package is `com.github.tarcv.androidtestng`, henceforth after the build processes
 it, all our tests will be automatically searched for in the
-[`de.lemona.android.testng.test`](https://github.com/LemonadeLabInc/android-testng/tree/master/src/androidTest/java/de/lemona/android/testng/test)
+[`com.github.tarcv.androidtestng.test`](https://github.com/LemonadeLabInc/android-testng/tree/master/src/androidTest/java/de/lemona/android/testng/test)
 package.
 
 
 XML Suites
 ----------
 
-Test suites can also be defined using a [`testng.xml`](http://testng.org/doc/documentation-main.html#testng-xml)
-file from your [`assets`](src/androidTest/assets) directory.
+Unfortunately this is broken on Android
+~~Test suites can also be defined using a [`testng.xml`](http://testng.org/doc/documentation-main.html#testng-xml)
+file from your [`assets`](src/androidTest/assets) directory.~~
 
-This is useful when tests do not reside in the standard application package
-plus `....test`.
+~~This is useful when tests do not reside in the standard application package
+plus `....test`.~~
 
-One caveat, though, is that the `<package />` element does not work _(yet)_,
-as TestNG expects JAR files, while Android bundles everything into a DAX file.
+~~One caveat, though, is that the `<package />` element does not work _(yet)_,
+as TestNG expects JAR files, while Android bundles everything into a DAX file.~~
 
-For an example see the [`testng.xml`](src/androidTest/assets/testng.xml) file
-included alongside these sources.
+~~For an example see the [`testng.xml`](src/androidTest/assets/testng.xml) file
+included alongside these sources.~~
 
 
 Contexts

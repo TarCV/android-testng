@@ -1,51 +1,20 @@
 // Build dependencies
 buildscript {
-  repositories {
-    jcenter()
-  }
-  dependencies {
-    classpath 'com.android.tools.build:gradle:3.0.1'
-  }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+    }
 }
 
-// Plugins
-apply plugin: 'com.android.library'
-
-// Android setup
-android {
-  compileSdkVersion 22
-  buildToolsVersion '22.0.1'
-
-  // Instrumentation runner defined here, we publish this...
-  defaultConfig {
-    minSdkVersion 22
-    targetSdkVersion 22
-    testInstrumentationRunner 'de.lemona.android.testng.TestNGRunner'
-  }
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
 }
 
-// Ignore test failures, we have forced a couple of them
-gradle.taskGraph.whenReady {
-  connectedDebugAndroidTest {
-    ignoreFailures = true
-  }
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
-
-repositories {
-  google()
-  jcenter()
-}
-
-// Our dependencies
-dependencies {
-
-  // Depend on TestNG (obviously)
-  compile('org.testng:testng:6.14.2') {
-   exclude group: 'com.beust', module: 'jcommander'
-   exclude group: 'org.beanshell', module: 'bsh'
-   exclude group: 'junit', module: 'junit'
-  }
-
-  androidTestImplementation 'com.android.support.test:runner:1.0.1'
-}
-

@@ -1,1 +1,3 @@
 rootProject.name = 'android-testng'
+include ':library'
+include ':test-app'

@@ -3,7 +3,7 @@ TestNG runner for Android
 
 This is an implementation of an Android
 [Instrumentation](http://developer.android.com/reference/android/app/Instrumentation.html)
-executing unit tests based on [TestNG](http://testng.org/) (the best testing framework for Java).
+executing unit tests based on [TestNG](http://testng.org/) (Java testing framework that is more suitable for integration and complex automation tests than JUnit).
 
 Usage
 -----
@@ -35,22 +35,12 @@ Packages
 
 The runner will look for classes everywhere in your classpath - same as standard ASTL library
 
-In [Gradle](https://gradle.org/) this defaults to your application package
-plus `....test`.
-
-If no tests can be found, verify the parameter in the manifest of your APK.
-
-For example in our [manifest](src/main/AndroidManifest.xml) the declared
-package is `com.github.tarcv.androidtestng`, henceforth after the build processes
-it, all our tests will be automatically searched for in the
-[`com.github.tarcv.androidtestng.test`](https://github.com/LemonadeLabInc/android-testng/tree/master/src/androidTest/java/de/lemona/android/testng/test)
-package.
-
 
 XML Suites
 ----------
 
-Unfortunately this is broken on Android
+**Unfortunately this is BROKEN on Android**
+
 ~~Test suites can also be defined using a [`testng.xml`](http://testng.org/doc/documentation-main.html#testng-xml)
 file from your [`assets`](src/androidTest/assets) directory.~~
 
@@ -71,7 +61,7 @@ In order to have access to the Android's application
 [Context](http://developer.android.com/reference/android/content/Context.html)
 please use ASTL standard [InstrumentationRegistry#getTargetContext](https://developer.android.com/reference/android/support/test/InstrumentationRegistry.html#getTargetContext()).
 
-In comparison with the original project Guice is removed here.
+In comparison with the original project Guice is absent here.
 
 
 Options

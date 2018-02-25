@@ -18,7 +18,7 @@ then declaring the dependency and modifying your `testInstrumentationRunner`:
 
 // TestNG dependency, remember to update to the latest version
 dependencies {
-  androidTestCompile 'de.lemona.android:android-testng:X.Y.Z'
+  androidTestCompile 'com.github.tarcv:android-testng:X.Y.Z'
 }
 
 // Android setup
@@ -33,8 +33,7 @@ android {
 Packages
 --------
 
-The runner will *ONLY* look for classes in the package specified by the
-`targetPackage` entry in your `AndroidManifest.xml` file.
+The runner will look for classes everywhere in your classpath - same as standard ASTL library
 
 In [Gradle](https://gradle.org/) this defaults to your application package
 plus `....test`.
